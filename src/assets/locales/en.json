@@ -292,9 +292,10 @@
       "settings": {
         "downloadItem": "Download",
         "enableSubtitles": "Enable Subtitles",
-        "experienceSection": "Viewing experience-- test",
+        "experienceSection": "Viewing experience-- edit here",
         "playbackItem": "Playback settings",
         "qualityItem": "Quality",
+        "test": "test",
         "sourceItem": "Video sources",
         "subtitleItem": "Subtitle settings",
         "videoSection": "Video settings"
