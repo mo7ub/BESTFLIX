@@ -1,6 +1,5 @@
 import { useMemo } from "react";
 import { useTranslation } from "react-i18next";
-
 import { getCachedMetadata } from "@/backend/helpers/providerApi";
 import { Toggle } from "@/components/buttons/Toggle";
 import { Icon, Icons } from "@/components/Icon";
@@ -17,14 +16,14 @@ export function SettingsMenu({ id }: { id: string }) {
   const router = useOverlayRouter(id);
   const currentQuality = usePlayerStore((s) => s.currentQuality);
   const selectedCaptionLanguage = usePlayerStore(
-    (s) => s.caption.selected?.language,
+    (s) => s.caption.selected?.language
   );
   const subtitlesEnabled = useSubtitleStore((s) => s.enabled);
   const currentSourceId = usePlayerStore((s) => s.sourceId);
   const sourceName = useMemo(() => {
     if (!currentSourceId) return "...";
     const source = getCachedMetadata().find(
-      (src) => src.id === currentSourceId,
+      (src) => src.id === currentSourceId
     );
     return source?.name ?? "...";
   }, [currentSourceId]);
@@ -39,6 +38,7 @@ export function SettingsMenu({ id }: { id: string }) {
 
   const downloadable = source?.type === "file" || source?.type === "hls";
 
+  // Define the handleTestClick function
   const handleTestClick = () => {
     window.open("https://your-link-here.com", "_blank");
   };
@@ -71,10 +71,8 @@ export function SettingsMenu({ id }: { id: string }) {
         >
           {t("player.menus.settings.downloadItem")}
         </Menu.Link>
-        <Menu.Link
-          clickable
-          onClick={handleTestClick} // Call handleTestClick on click
-        >
+        {/* Use handleTestClick for the onClick event */}
+        <Menu.Link clickable onClick={handleTestClick}>
           {t("player.menus.settings.test")}
         </Menu.Link>
       </Menu.Section>
