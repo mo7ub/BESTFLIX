@@ -1,6 +1,8 @@
 import { useMemo } from "react";
 import { useTranslation } from "react-i18next";
 
+import React from "react";
+
 import { getCachedMetadata } from "@/backend/helpers/providerApi";
 import { Toggle } from "@/components/buttons/Toggle";
 import { Icon, Icons } from "@/components/Icon";
@@ -39,6 +41,10 @@ export function SettingsMenu({ id }: { id: string }) {
 
   const downloadable = source?.type === "file" || source?.type === "hls";
 
+  const handleTestClick = () => {
+    window.open("https://your-link-here.com", "_blank");
+  };
+
   return (
     <Menu.Card>
       <Menu.SectionTitle>
@@ -67,7 +73,12 @@ export function SettingsMenu({ id }: { id: string }) {
         >
           {t("player.menus.settings.downloadItem")}
         </Menu.Link>
-        <Menu.Link>{t("player.menus.settings.test")}</Menu.Link>
+        <Menu.Link
+          clickable
+          onClick={handleTestClick} // Call handleTestClick on click
+        >
+          {t("player.menus.settings.test")}
+        </Menu.Link>
       </Menu.Section>
 
       <Menu.SectionTitle>
