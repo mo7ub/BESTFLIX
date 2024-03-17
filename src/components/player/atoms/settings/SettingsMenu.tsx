@@ -67,15 +67,8 @@ export function SettingsMenu({ id }: { id: string }) {
         >
           {t("player.menus.settings.downloadItem")}
         </Menu.Link>
-        <Menu.Link
-          clickable
-          onClick={() =>
-            router.navigate(downloadable ? "/download" : "/download/unable")
-          }
-          rightSide={<Icon className="text-xl" icon={Icons.DOWNLOAD} />}
-          className={downloadable ? "opacity-100" : "opacity-50"}
-        >
-          {t("player.menus.settings.downloadItem")}
+        <Menu.Link>
+          {t("player.menus.settings.test")}
         </Menu.Link>
       </Menu.Section>
 
