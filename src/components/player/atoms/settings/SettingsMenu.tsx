@@ -41,9 +41,12 @@ export function SettingsMenu({ id }: { id: string }) {
 
   const downloadable = source?.type === "file" || source?.type === "hls";
   const downloadUrl = useDownloadLink();
-  const handleTestClick = () => {
+  const handleWatchPartyClick = () => {
     if (downloadUrl) {
-      window.open(downloadUrl, "_blank");
+      const watchPartyUrl = `https://www.watchparty.me/create?video=${encodeURIComponent(
+        downloadUrl,
+      )}`;
+      window.open(watchPartyUrl);
     }
   };
   return (
@@ -73,12 +76,13 @@ export function SettingsMenu({ id }: { id: string }) {
           className={downloadable ? "opacity-100" : "opacity-50"}
         >
           {t("player.menus.settings.downloadItem")}
-        </Menu.Link>
-        <Menu.Link
+          <Menu.Link
           clickable
-          onClick={handleTestClick} // Call handleTestClick on click
+          onClick={handleWatchPartyClick}
+          rightSide={<Icon className="text-xl" icon={Icons.WATCH_PARTY} />}
+          className={downloadable ? "opacity-100" : "opacity-50"}
         >
-          {t("player.menus.settings.test")}
+          {t("Watch Party")}
         </Menu.Link>
       </Menu.Section>
 
