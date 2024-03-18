@@ -12,6 +12,8 @@ import { qualityToString } from "@/stores/player/utils/qualities";
 import { useSubtitleStore } from "@/stores/subtitles";
 import { getPrettyLanguageNameFromLocale } from "@/utils/language";
 
+import { useDownloadLink } from './Downloads';
+
 export function SettingsMenu({ id }: { id: string }) {
   const { t } = useTranslation();
   const router = useOverlayRouter(id);
@@ -40,8 +42,12 @@ export function SettingsMenu({ id }: { id: string }) {
   const downloadable = source?.type === "file" || source?.type === "hls";
 
   const handleTestClick = () => {
-    window.open("https://your-link-here.com", "_blank");
+    const downloadUrl = useDownloadLink();
+    if (downloadUrl) {
+      window.open(downloadUrl, "_blank");
+    }
   };
+  
 
   return (
     <Menu.Card>
