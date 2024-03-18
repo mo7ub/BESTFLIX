@@ -76,7 +76,7 @@ export function SettingsMenu({ id }: { id: string }) {
           className={downloadable ? "opacity-100" : "opacity-50"}
         >
           {t("player.menus.settings.downloadItem")}
-          </Menu.Link>
+        </Menu.Link>
         <Menu.Link
           clickable
           onClick={handleWatchPartyClick}
