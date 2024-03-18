@@ -42,12 +42,10 @@ export function SettingsMenu({ id }: { id: string }) {
   const downloadable = source?.type === "file" || source?.type === "hls";
   const downloadUrl = useDownloadLink();
   const handleTestClick = () => {
-    
     if (downloadUrl) {
       window.open(downloadUrl, "_blank");
     }
   };
-  
   return (
     <Menu.Card>
       <Menu.SectionTitle>
