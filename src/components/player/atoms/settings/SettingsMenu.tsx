@@ -12,7 +12,7 @@ import { qualityToString } from "@/stores/player/utils/qualities";
 import { useSubtitleStore } from "@/stores/subtitles";
 import { getPrettyLanguageNameFromLocale } from "@/utils/language";
 
-import { useDownloadLink } from './Downloads';
+import { useDownloadLink } from "./Downloads";
 
 export function SettingsMenu({ id }: { id: string }) {
   const { t } = useTranslation();
