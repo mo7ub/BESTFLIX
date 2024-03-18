@@ -87,14 +87,6 @@ export function Navigation(props: NavigationProps) {
                 <BrandPill clickable />
               </Link>
               <a
-                href={conf().DISCORD_LINK}
-                target="_blank"
-                rel="noreferrer"
-                className="text-xl text-white tabbable rounded-full"
-              >
-                <IconPatch icon={Icons.DISCORD} clickable downsized />
-              </a>
-              <a
                 href={conf().GITHUB_LINK}
                 target="_blank"
                 rel="noreferrer"
