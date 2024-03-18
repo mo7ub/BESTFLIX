@@ -12,22 +12,19 @@ import { qualityToString } from "@/stores/player/utils/qualities";
 import { useSubtitleStore } from "@/stores/subtitles";
 import { getPrettyLanguageNameFromLocale } from "@/utils/language";
 
-// Import the useDownloadLink function from Downloads.tsx
-import { useDownloadLink } from "Downloads.tsx";
-
 export function SettingsMenu({ id }: { id: string }) {
   const { t } = useTranslation();
   const router = useOverlayRouter(id);
   const currentQuality = usePlayerStore((s) => s.currentQuality);
   const selectedCaptionLanguage = usePlayerStore(
-    (s) => s.caption.selected?.language
+    (s) => s.caption.selected?.language,
   );
   const subtitlesEnabled = useSubtitleStore((s) => s.enabled);
   const currentSourceId = usePlayerStore((s) => s.sourceId);
   const sourceName = useMemo(() => {
     if (!currentSourceId) return "...";
     const source = getCachedMetadata().find(
-      (src) => src.id === currentSourceId
+      (src) => src.id === currentSourceId,
     );
     return source?.name ?? "...";
   }, [currentSourceId]);
@@ -41,13 +38,9 @@ export function SettingsMenu({ id }: { id: string }) {
   const source = usePlayerStore((s) => s.source);
 
   const downloadable = source?.type === "file" || source?.type === "hls";
-
-  // Define the handleTestClick function to use the download URL
+  
   const handleTestClick = () => {
-    const downloadUrl = useDownloadLink(); // Fetch the download URL
-    if (downloadUrl) {
-      window.open(downloadUrl, "_blank"); // Open the download URL in a new tab
-    }
+    window.open("https://your-link-here.com", "_blank");
   };
 
   return (
@@ -78,10 +71,9 @@ export function SettingsMenu({ id }: { id: string }) {
         >
           {t("player.menus.settings.downloadItem")}
         </Menu.Link>
-        {/* Use handleTestClick for the onClick event */}
-        <Menu.Link clickable onClick={handleTestClick}>
-          {t("player.menus.settings.test")}
-        </Menu.Link>
+        <Menu.Link
+        clickable
+        onClick={()}>{t("player.menus.settings.test")}</Menu.Link>
       </Menu.Section>
 
       <Menu.SectionTitle>
