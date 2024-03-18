@@ -38,7 +38,7 @@ export function SettingsMenu({ id }: { id: string }) {
   const source = usePlayerStore((s) => s.source);
 
   const downloadable = source?.type === "file" || source?.type === "hls";
-  
+
   const handleTestClick = () => {
     window.open("https://your-link-here.com", "_blank");
   };
@@ -72,8 +72,11 @@ export function SettingsMenu({ id }: { id: string }) {
           {t("player.menus.settings.downloadItem")}
         </Menu.Link>
         <Menu.Link
-        clickable
-        onClick={()}>{t("player.menus.settings.test")}</Menu.Link>
+          clickable
+          onClick={handleTestClick} // Call handleTestClick on click
+        >
+          {t("player.menus.settings.test")}
+        </Menu.Link>
       </Menu.Section>
 
       <Menu.SectionTitle>
