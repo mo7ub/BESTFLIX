@@ -40,15 +40,14 @@ export function SettingsMenu({ id }: { id: string }) {
   const source = usePlayerStore((s) => s.source);
 
   const downloadable = source?.type === "file" || source?.type === "hls";
-
+  const downloadUrl = useDownloadLink();
   const handleTestClick = () => {
-    const downloadUrl = useDownloadLink();
+    
     if (downloadUrl) {
       window.open(downloadUrl, "_blank");
     }
   };
   
-
   return (
     <Menu.Card>
       <Menu.SectionTitle>
