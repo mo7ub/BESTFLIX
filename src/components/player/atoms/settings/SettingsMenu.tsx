@@ -1,5 +1,6 @@
 import { useMemo } from "react";
 import { useTranslation } from "react-i18next";
+
 import { getCachedMetadata } from "@/backend/helpers/providerApi";
 import { Toggle } from "@/components/buttons/Toggle";
 import { Icon, Icons } from "@/components/Icon";
@@ -11,19 +12,22 @@ import { qualityToString } from "@/stores/player/utils/qualities";
 import { useSubtitleStore } from "@/stores/subtitles";
 import { getPrettyLanguageNameFromLocale } from "@/utils/language";
 
+// Import the useDownloadLink function from Downloads.tsx
+import { useDownloadLink } from "Downloads.tsx";
+
 export function SettingsMenu({ id }: { id: string }) {
   const { t } = useTranslation();
   const router = useOverlayRouter(id);
   const currentQuality = usePlayerStore((s) => s.currentQuality);
   const selectedCaptionLanguage = usePlayerStore(
-    (s) => s.caption.selected?.language,
+    (s) => s.caption.selected?.language
   );
   const subtitlesEnabled = useSubtitleStore((s) => s.enabled);
   const currentSourceId = usePlayerStore((s) => s.sourceId);
   const sourceName = useMemo(() => {
     if (!currentSourceId) return "...";
     const source = getCachedMetadata().find(
-      (src) => src.id === currentSourceId,
+      (src) => src.id === currentSourceId
     );
     return source?.name ?? "...";
   }, [currentSourceId]);
@@ -38,9 +42,12 @@ export function SettingsMenu({ id }: { id: string }) {
 
   const downloadable = source?.type === "file" || source?.type === "hls";
 
-  // Define the handleTestClick function
+  // Define the handleTestClick function to use the download URL
   const handleTestClick = () => {
-    window.open("https://your-link-here.com", "_blank");
+    const downloadUrl = useDownloadLink(); // Fetch the download URL
+    if (downloadUrl) {
+      window.open(downloadUrl, "_blank"); // Open the download URL in a new tab
+    }
   };
 
   return (
