@@ -26,9 +26,9 @@ const availableThemes = [
     key: "settings.appearance.themes.red",
   },
   {
-    id: "gray",
-    selector: "theme-gray",
-    key: "settings.appearance.themes.gray",
+    id: "purple",
+    selector: "theme-purple",
+    key: "settings.appearance.themes.purple",
   },
 ];
 
