@@ -83,7 +83,7 @@ const tokens = {
   },
 };
 
-export const defaultTheme = {
+export default createTheme({
   extend: {
     colors: {
       themePreview: {
