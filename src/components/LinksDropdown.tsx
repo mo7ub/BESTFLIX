@@ -156,7 +156,6 @@ export function LinksDropdown(props: { children: React.ReactNode }) {
           ) : null}
           <Divider />
           </div>
-        </div>
       </Transition>
     </div>
   );
