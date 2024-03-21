@@ -86,6 +86,7 @@ const tokens = {
 };
 
 export default createTheme({
+  name : "purple",
   extend: {
     colors: {
       themePreview: {
@@ -94,7 +95,6 @@ export default createTheme({
         ghost: tokens.white,
       },
 
-      // Branding
       pill: {
         background: tokens.shade.c300,
         backgroundHover: tokens.shade.c200,
