@@ -1,5 +1,3 @@
-import { createTheme } from "../types";
-
 const tokens = {
   purple: {
     c50: "#aaafff",
@@ -51,8 +49,7 @@ const tokens = {
   }
 };
 
-export default createTheme({
-  name: "gray",
+export const defaultTheme = {
   extend: {
     colors: {
       themePreview: {
@@ -256,4 +253,4 @@ export default createTheme({
       }
     }
   }
-});
+};
