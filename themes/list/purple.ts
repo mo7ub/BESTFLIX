@@ -336,4 +336,4 @@ export default createTheme({
       },
     },
   },
-};
+});
