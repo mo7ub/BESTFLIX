@@ -1,3 +1,5 @@
+import { createTheme } from "../types";
+
 const tokens = {
   black: "#000000",
   white: "#FFFFFF",
