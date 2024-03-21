@@ -92,7 +92,6 @@ export default createTheme({
       themePreview: {
         primary: tokens.blue.c200,
         secondary: tokens.shade.c50,
-        ghost: tokens.white,
       },
 
       pill: {
